@@ -1,6 +1,6 @@
 VERSION ?= $(shell cat VERSION)
 NAME    ?= bitgod
-IMAGE   ?= ashanaakh/$(NAME):$(VERSION)
+IMAGE   ?= heliostech/$(NAME):$(VERSION)
 
 .PHONY: default build run push
 
@@ -12,7 +12,7 @@ build:
 
 run:
 	@echo '> Starting "$(NAME)" container...'
-	@docker run -it --rm $(IMAGE) bash
+	@docker run -d $(IMAGE)
 
 push:
 	docker push $(IMAGE)

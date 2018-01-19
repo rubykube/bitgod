@@ -1,4 +1,2 @@
 # Bitgod
 > Bitgod container
-
-## Overview
