@@ -1,2 +1,3 @@
 # Bitgod
-> Bitgod container
+> Bitgod container for [peatio.tech](https://www.peatio.tech) stack
+
