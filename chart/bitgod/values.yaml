@@ -1,0 +1,26 @@
+image:
+  repository: ashanaakh/bitgod
+  tag: latest
+  pullPolicy: Always
+
+service:
+  type: ClusterIP
+  name: bitgod
+  port: 19332 # rpcport
+
+# Comment to disable wallet and token initialization
+bitgo:
+  enabled: true
+  wallet: ""
+  accessToken: ""
+# bitgo:
+#   enabled: falses
+
+# Use 'testnet: false' for production mode
+testnet: true
+
+rpc:
+  user: bitgo
+  password: changeme
+
+resources: {}

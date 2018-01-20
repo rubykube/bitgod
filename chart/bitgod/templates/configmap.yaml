@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ template "bitgod.fullname" . }}-bitcoind-config
+  labels:
+{{ include "bitgod.labels.standard" . | indent 4 }}
+data:
+  bitcoin.conf: |
+    server=1
+    printtoconsole=1
+    rpcallowip=0.0.0.0/0
+    rpcport={{ required "A valid rpcport is required!" .Values.service.port }}
+    rpcuser={{ required "A valid rpcuser is required!" .Values.rpc.user }}
+    rpcpassword={{ required "A valid rpcpassword is required!" .Values.rpc.password }}
+    testnet={{ if .Values.testnet }}1{{ else }}0{{ end }}
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ template "bitgod.fullname" . }}-bitgod-config
+  labels:
+{{ include "bitgod.labels.standard" . | indent 4 }}
+data:
+  bitgod.conf: |
+    rpcbind=0.0.0.0
+    env={{ if .Values.testnet }}test{{ else }}prod{{ end }}
+    rpcport={{ required "A valid rpcport is required!" .Values.service.port }}
+    rpcuser={{ required "A valid rpcuser is required!" .Values.rpc.user }}
+    rpcpassword={{ required "A valid rpcpassword is required!" .Values.rpc.password }}

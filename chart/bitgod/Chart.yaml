@@ -1,0 +1,15 @@
+name: bitgod
+version: 1.0.0
+description:
+keywords:
+- bitgod
+- cryptocurrencies
+- blockchain
+home:
+icon: https://www.bitgo.com/img/new_bitgo/logo.71b677f29e55836e.png
+sources:
+- https://www.bitgo.com
+maintainers:
+- name: Ali Shanaakh
+  email: ashanaakh@heliostech.fr
+engine: gotpl
