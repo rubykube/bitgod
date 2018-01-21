@@ -6,21 +6,27 @@ image:
 service:
   type: ClusterIP
   name: bitgod
-  port: 19332 # rpcport
+  port: 19332  # rpcport
 
 # Comment to disable wallet and token initialization
 bitgo:
   enabled: true
-  wallet: ""
-  accessToken: ""
+  wallet: "2NAdm7dtUJfgi5j6zurf5JdCbzMRAngBSkt"
+  accessToken: "v2xabc2334a2f83670a2e61ed2239848e918b15dcfbd6b83d30b5aab05865f9552d"
 # bitgo:
-#   enabled: falses
+#   enabled: false
 
 # Use 'testnet: false' for production mode
 testnet: true
 
 rpc:
-  user: bitgo
+  user: bitgod
   password: changeme
 
 resources: {}
+
+# Additional configurations
+config:
+  bitcoind: {}
+  #  printtoconsole: 1
+  bitgod: {}
