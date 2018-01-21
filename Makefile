@@ -1,6 +1,6 @@
 VERSION ?= $(shell cat VERSION)
 NAME    ?= bitgod
-IMAGE   ?= heliostech/$(NAME):$(VERSION)
+IMAGE   ?= ashanaakh/$(NAME):$(VERSION)
 
 .PHONY: default build run push
 
@@ -12,7 +12,10 @@ build:
 
 run:
 	@echo '> Starting "$(NAME)" container...'
-	@docker run -d $(IMAGE)
+	@docker run -p 19332:19332 -d $(IMAGE)
 
 push:
 	docker push $(IMAGE)
+
+deploy:
+	@helm install chart/$(NAME) --name $(NAME) --set "image.tag=$(VERSION)"
