@@ -22,6 +22,6 @@ RUN npm install
 
 USER node
 
-ENTRYPOINT ./bin/bitgod -conf ${HOME}/.bitgod/bitgod.conf
+CMD ./bin/bitgod -conf ${HOME}/.bitgod/bitgod.conf
 
 EXPOSE ${PORT}
